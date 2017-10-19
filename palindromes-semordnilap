@@ -1,0 +1,57 @@
+package Week6;
+import java.util.Scanner;
+
+public class semordnilap {
+    public static void main(String[] args){
+
+        Scanner sniff = new Scanner(System.in);
+        
+        System.out.println("Input number which will be multiplied by 1000");
+        int numb = sniff.nextInt();
+        
+        System.out.println("List of " + numb + " Palindromes");
+    
+    printNumber(numb);
+    } //Main method section
+    
+    public static void printNumber (int primeNumber) {
+        final int numPerLine = 1;
+        int count = 0, number = 1;        
+    
+        while (count < primeNumber) {
+            if (isPalindrome(number) && isPrime(number)) {
+                count++;
+                        if (count % numPerLine == 0) {
+                            System.out.println(" " + number);
+                        }
+                        else
+                            System.out.println(" " + number );
+            }
+            number++;
+        }
+    } //Print number section
+    
+    public static boolean isPrime(int number) {
+        for (int divisor = 2; divisor <= number / 2; divisor++) {
+    if (number % divisor == 0) {
+        return false;
+    }
+        }
+        return true;
+    } // prime section
+
+    public static boolean isPalindrome (int number) {
+        int palindrome = number;
+        int reverse = 0;
+                
+        while (palindrome != 0) {
+            int remainder = palindrome % 10;
+        reverse = reverse * 10 + remainder;
+        palindrome = palindrome / 10;
+        }
+        if (number == reverse) {
+            return true;
+            }
+    return false;
+    }
+} // palindrome section
